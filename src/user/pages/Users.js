@@ -1,5 +1,5 @@
 import React from "react";
-import UserItem from "../components/UserItem";
+
 import UsersList from "../components/UsersList";
 
 export default function Users() {
