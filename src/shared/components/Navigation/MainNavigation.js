@@ -4,7 +4,7 @@ import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
 import { Link } from "react-router-dom";
 import "./MainNavigation.css";
-import Backdrop from "../UIElements/Backdrop"
+import Backdrop from "../UIElements/Backdrop";
 export default function MainNavigation(props) {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   const openDrawer = () => {
@@ -15,14 +15,14 @@ export default function MainNavigation(props) {
   };
   return (
     <>
-    {drawerIsOpen && <Backdrop onClick={closeDrawer}/>}
-       
-        <SideDrawer show={drawerIsOpen} onClick={closeDrawer}>
-          <nav className="main-navigation__drawer-nav">
-            <NavLinks />
-          </nav>
-        </SideDrawer>
-      
+      {drawerIsOpen && <Backdrop onClick={closeDrawer} />}
+
+      <SideDrawer show={drawerIsOpen} onClick={closeDrawer}>
+        <nav className="main-navigation__drawer-nav">
+          <NavLinks />
+        </nav>
+      </SideDrawer>
+
       <MainHeader>
         <button className="main-navigation__menu-btn" onClick={openDrawer}>
           <span />

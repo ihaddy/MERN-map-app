@@ -8,7 +8,9 @@ export default function NavLinks() {
     <div>
       <ul className="nav-links">
         <li>
-          <NavLink exact to="/"> ALL USERS</NavLink>
+          <NavLink exact to="/">
+            ALL USERS
+          </NavLink>
         </li>
         <li>
           <NavLink to="/u1/places"> MY PLACES</NavLink>
