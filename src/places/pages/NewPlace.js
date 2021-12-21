@@ -47,6 +47,9 @@ const NewPlace = () => {
   });
 
   const inputHandler = useCallback((id, value, isValid) => {
+
+    console.log(formState)
+
     dispatch({
       type: 'INPUT_CHANGE',
       value: value,
@@ -54,7 +57,7 @@ const NewPlace = () => {
       inputId: id
     });
   }, []);
-
+  console.log(formState)
   return (
     <form className="place-form">
       <Input
@@ -73,7 +76,8 @@ const NewPlace = () => {
         validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="Please enter a valid description (at least 5 characters)."
         onInput={inputHandler}
-      />
+        />
+       
       <Button type="submit" disabled={!formState.isValid}>
         ADD PLACE
       </Button>

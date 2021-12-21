@@ -1,6 +1,7 @@
-import React, { useReducer, useEffect } from "react";
-import { validate } from "../../util/validators";
-import "./Input.css";
+import React, { useReducer, useEffect } from 'react';
+
+import { validate } from '../../util/validators';
+import './Input.css';
 
 const inputReducer = (state, action) => {
   switch (action.type) {
@@ -8,12 +9,12 @@ const inputReducer = (state, action) => {
       return {
         ...state,
         value: action.val,
-        isValid: validate(action.val, action.validators),
+        isValid: validate(action.val, action.validators)
       };
     case "TOUCH":
       return {
         ...state,
-        isTouched: true,
+        isTouched: true
       };
 
     default:
@@ -25,12 +26,12 @@ export default function Input(props) {
   const [inputState, dispatch] = useReducer(inputReducer, {
     value: "",
     isValid: false,
-    isTouched: false,
+    isTouched: false
   });
-  
+
   useEffect(() => {
       props.onInput(props.id, inputState.value, inputState.isValid)
-  }, [props.id, props.value, props.isValid, props.onInput])
+  }, [props.id, inputState.value, inputState.isValid, props.onInput])
 
   const changeHandler = (e) => {
     dispatch({
