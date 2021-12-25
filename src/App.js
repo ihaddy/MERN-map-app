@@ -7,6 +7,7 @@ import {
 import Users from "./user/pages/Users";
 import NewPlace from "./places/pages/NewPlace";
 import UserPlaces from "./places/pages/UserPlaces";
+import UpdatePlace from "./places/pages/UpdatePlace";
 import "./App.css";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route exact path="/places/new">
           <NewPlace />
+        </Route>
+        <Route exact path="/places/:placeId">
+          <UpdatePlace />
         </Route>
         <Route exact path="/">
           <Users />

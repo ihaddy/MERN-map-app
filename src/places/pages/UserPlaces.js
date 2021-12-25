@@ -2,7 +2,7 @@ import React from "react";
 import PlaceList from "../components/PlaceList";
 import { useParams } from "react-router";
 
-const DUMMY_PLACE = [
+export const DUMMY_PLACE = [
   {
     id: "p1",
     title: "Empire State Building",
