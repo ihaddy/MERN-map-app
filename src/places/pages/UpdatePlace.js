@@ -7,6 +7,8 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import "./NewPlace.css"
+
 
 export default function UpdatePlace() {
   const placeId = useParams().placeId;
@@ -20,7 +22,7 @@ export default function UpdatePlace() {
     );
   }
   return (
-    <form>
+    <form className="place-form">
       <Input
         id="title"
         element="input"
