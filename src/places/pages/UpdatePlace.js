@@ -15,6 +15,8 @@ import "./NewPlace.css";
 export default function UpdatePlace() {
   const placeId = useParams().placeId;
   const identifiedPlace = DUMMY_PLACE.find((p) => p.id === placeId);
+ console.log(identifiedPlace)
+ console.log(DUMMY_PLACE)
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -29,7 +31,8 @@ export default function UpdatePlace() {
     },
     true
   );
-
+  console.log("after useform")
+  console.log(formState)
   useEffect(() => {
     if (identifiedPlace) {
       setFormData(
@@ -46,10 +49,10 @@ export default function UpdatePlace() {
       );
     }
   }, [setFormData, identifiedPlace]);
-
+  console.log("after useeffect")
+  console.log(formState)
   const placeUpdateSubmissionHandler = (e) => {
     e.preventDefault();
-    console.log(formState);
   };
 
   if (!identifiedPlace) {
@@ -61,8 +64,9 @@ export default function UpdatePlace() {
       </div>
     );
   }
+  console.log(formState)
   return (
-    <>
+    <div>
       {formState.inputs.title.value && (
         <form className="place-form" onSubmit={placeUpdateSubmissionHandler}>
           <Input
@@ -91,6 +95,6 @@ export default function UpdatePlace() {
           </Button>
         </form>
       )}
-    </>
+    </div>
   );
 }

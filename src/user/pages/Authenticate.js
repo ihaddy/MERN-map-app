@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import Card from "../../shared/components/UIElements/Card";
@@ -9,9 +9,11 @@ import {
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/formhook";
 import { useState } from "react";
+import { AuthContext } from "../../shared/context/AuthContext";
 
 import "./Authenticate.css";
 export default function Authenticate() {
+  const auth = useContext(AuthContext)
   const [isLogin, setIsLogin] = useState(true);
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -32,7 +34,8 @@ export default function Authenticate() {
 
   const authenticateSubmissionHandler = (e) => {
     e.preventDefault();
-    // console.log(formState);
+    console.log(formState);
+    auth.login()
   };
 
   const signUpHandler = () => {
@@ -62,7 +65,8 @@ export default function Authenticate() {
   // {isLogin ? : }
   // honestly this is a really poor way to implement this, they should be separate components because the interplay of usecallback useeffect and the dispatch hook aren't properly resetting anything sometimes when you switch,
   // and handling a password validation when you sign up as a new user and all of that is challenging by trying to use ternaries all in the same component
-  //currently some react issue where since i'm not rendering two totally different components based on state, the order of the input fields and their input carries over to the re-render when you switch between
+  //currently some react issue where since i'm not rendering two totally different components based on state, when you use just one massive ternarny operator to render essentially two pages,
+  // the order of the input fields and their input carries over to the re-render when you switch between
   //sign up mode or login mode, so if your first input field is "email" on login, when you switch to signup, it'll take whatever was in email and fill it into the first field, even if it's username
   return (
     <Card className="authentication">
